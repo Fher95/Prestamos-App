@@ -1,5 +1,20 @@
-<div class="content">
-  <div class="col m">
+<form [formGroup]="this.formCliente" autocomplete="off">
+  <div class="my-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" formControlName="nombre">
+  </div>
+  <div class="mb-3">
+    <label for="cedula" class="form-label">Cédula</label>
+    <input type="text" class="form-control" id="cedula" formControlName="cedula">
+  </div>
+  <div class="mb-3">
+    <label for="correo" class="form-label">Correo</label>
+    <input type="text" class="form-control" id="correo" formControlName="correo">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="onRegistrar()">Registrar</button>
+</form>
+<!-- <div class="container">
+  <div class="col">
     <div class="row">
       <span>Nombre: </span>
       <input type="text" />
@@ -12,5 +27,9 @@
       <span>Telefono: </span>
       <input type="text" />
     </div>
+    <div class="row my-3 gx-3">
+        <button class="btn btn-primary col">Guardar</button>
+        <button class="btn btn-danger col">Cancelar</button>
+    </div>
   </div>
-</div>
+</div> -->
