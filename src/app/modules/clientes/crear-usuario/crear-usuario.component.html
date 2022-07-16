@@ -1,17 +1,47 @@
 <form [formGroup]="this.formCliente" autocomplete="off">
   <div class="my-3">
     <label for="nombre" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="nombre" formControlName="nombre">
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      formControlName="nombre"
+    />
   </div>
   <div class="mb-3">
     <label for="cedula" class="form-label">Cédula</label>
-    <input type="text" class="form-control" id="cedula" formControlName="cedula">
+    <input
+      type="text"
+      class="form-control"
+      id="cedula"
+      formControlName="cedula"
+    />
   </div>
   <div class="mb-3">
     <label for="correo" class="form-label">Correo</label>
-    <input type="text" class="form-control" id="correo" formControlName="correo">
+    <input
+      type="text"
+      class="form-control"
+      id="correo"
+      formControlName="correo"
+    />
   </div>
-  <button type="button" class="btn btn-primary" (click)="onRegistrar()">Registrar</button>
+  <div id="botones">
+    <button
+      type="button"
+      class="btn btn-primary me-3"
+      (click)="onRegistrar()"
+    >
+      Registrar
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger ms-3"
+      (click)="onCancelar()"
+    >
+      Cancelar
+    </button>
+  </div>
 </form>
 <!-- <div class="container">
   <div class="col">

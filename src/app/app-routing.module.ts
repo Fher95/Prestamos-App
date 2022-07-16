@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'characters'
-  // },
-  // {
-  //   path: 'characters',
-  //   loadChildren: () => import('./modules/characters/characters.module').then(m => m.CharactersModule)
-  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'clientes/lista-clientes'
+  },
+  {
+    path: 'clientes',
+    loadChildren: () => import('./modules/clientes/clientes.module').then(m => m.ClientesModule)
+  },
   // {
   //   path: 'locations',
   //   loadChildren: () => import('./modules/locations/locations.module').then(m => m.LocationsModule)

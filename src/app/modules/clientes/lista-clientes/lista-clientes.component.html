@@ -1,3 +1,6 @@
+<div class="text-center my-3">
+  <button class="btn btn-primary" (click)="onRegistrarCliente()">Registrar cliente</button>
+</div>
 <div class="content">
   <table class="table">
     <thead>
@@ -10,13 +13,13 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr *ngFor="let cliente of listaClientes; let i = index">
+      <tr *ngFor="let cliente of listaClientes$ | async; let i = index">
         <th scope="row">{{ i }}</th>
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.cedula }}</td>
         <td>{{ cliente.correo }}</td>
         <td>
-          <button><i class="bi bi-cash-coin"></i></button>
+          <button class="btn btn-success"><i class="bi bi-cash-coin"></i></button>
         </td>
       </tr>
     </tbody>

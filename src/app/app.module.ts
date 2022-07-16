@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UsuariosModule } from './modules/usuarios/usuarios.module';
-import { ListaClientesComponent } from './modules/usuarios/lista-clientes/lista-clientes.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,8 +11,8 @@ import { ListaClientesComponent } from './modules/usuarios/lista-clientes/lista-
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
-    UsuariosModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

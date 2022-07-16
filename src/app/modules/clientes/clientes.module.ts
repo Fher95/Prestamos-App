@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
-import { UsuariosRoutingModule } from './usuarios-routing.module';
+import { ClientesRoutingModule } from './clientes-routing.module';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteService } from './services/cliente.service';
@@ -16,9 +17,10 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
   ],
   imports: [
     CommonModule,
-    UsuariosRoutingModule,
+    ClientesRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [CrearUsuarioComponent, ListaClientesComponent]
 })
-export class UsuariosModule { }
+export class ClientesModule { }

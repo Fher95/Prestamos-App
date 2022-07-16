@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClienteService } from '../services/cliente.service';
 
 @Component({
@@ -8,11 +9,15 @@ import { ClienteService } from '../services/cliente.service';
 })
 export class ListaClientesComponent implements OnInit {
 
-  public listaClientes = this.clienteService.getListaClientes();
+  public listaClientes$ = this.clienteService.getListaClientes();
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public onRegistrarCliente() {
+    this.router.navigate(['/clientes/registrar-cliente']);
   }
 
 }
