@@ -1,0 +1,41 @@
+<form class="container" [formGroup]="this.formPrestamo">
+  <div class="row g-3 my-4 justify-content-center">
+    <div class="col-auto">
+      <label for="monto" class="col-form-label">Monto</label>
+    </div>
+    <div class="col-auto">
+      <input
+        type="number"
+        id="monto"
+        class="form-control"
+        aria-describedby="passwordHelpInline"
+        formControlName="monto"
+      />
+      <span id="passwordHelpInline" class="form-text">
+        Ingrese un valor entre $10.000 y $100.000.
+      </span>
+    </div>
+    <!-- <div class="col-auto">
+          </div> -->
+  </div>
+  <div class="row my-4 justify-content-center">
+    <div class="col-auto">
+      <label for="exampleInputPassword1" class="form-label"
+        >Fecha de pago</label
+      >
+    </div>
+    <div class="col-auto">
+      <input
+        type="date"
+        class="form-control"
+        id="exampleInputPassword1"
+        formControlName="fechaPago"
+      />
+    </div>
+  </div>
+  <div class="row my-4 justify-content-center">
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" (click)="onSolicitar()">Solicitar</button>
+    </div>
+  </div>
+</form>
