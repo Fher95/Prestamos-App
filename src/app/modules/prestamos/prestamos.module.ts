@@ -6,12 +6,14 @@ import { SolicitarPrestamoComponent } from './solicitar-prestamo/solicitar-prest
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PrestamosService } from './services/prestamos.service';
+import { ListaPrestamosComponent } from './lista-prestamos/lista-prestamos.component';
 
 
 @NgModule({
   providers: [PrestamosService],
   declarations: [
-    SolicitarPrestamoComponent
+    SolicitarPrestamoComponent,
+    ListaPrestamosComponent
   ],
   imports: [
     CommonModule,

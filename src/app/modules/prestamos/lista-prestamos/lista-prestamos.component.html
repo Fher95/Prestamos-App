@@ -1,0 +1,29 @@
+<!-- <div class="text-center my-3">
+  <button class="btn btn-primary">Registrar cliente</button>
+</div> -->
+<div class="content">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Monto aprobado</th>
+        <th scope="col">Fecha pago</th>
+        <th scope="col">Pagar</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let prestamo of listaPrestamos$ | async; let i = index">
+        <th scope="row">{{ prestamo.id }}</th>
+        <td>{{ prestamo.nombreCliente }}</td>
+        <td>{{ prestamo.monto }}</td>
+        <td>{{ prestamo.fechaPago }}</td>
+        <td>
+          <button class="btn btn-success">
+            <i class="bi bi-cash-coin"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

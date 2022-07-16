@@ -16,4 +16,8 @@ export class PrestamosService {
     registrarPrestamo(objPrestamo: PrestamoModel): Observable<PrestamoModel> {
         return this.httpClient.post<PrestamoModel>('http://localhost:3000/prestamos', objPrestamo);
     }
+
+    getListaPrestamos(): Observable<PrestamoModel[]> {
+        return this.httpClient.get<PrestamoModel[]>('http://localhost:3000/prestamos');
+    }
 }
