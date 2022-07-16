@@ -1,4 +1,10 @@
 <form class="container" [formGroup]="this.formPrestamo">
+  <div class="row my-4 justify-content-center" id="Info cliente">
+    <div class="col-auto text-center">
+      <h3 class="text-primary">{{ this.nombreCliente() }}</h3>
+      <strong>{{ this.cedulaCliente() }}</strong>
+    </div>
+  </div>
   <div class="row g-3 my-4 justify-content-center">
     <div class="col-auto">
       <label for="monto" class="col-form-label">Monto</label>
@@ -35,7 +41,14 @@
   </div>
   <div class="row my-4 justify-content-center">
     <div class="col-auto">
-      <button type="button" class="btn btn-primary" (click)="onSolicitar()">Solicitar</button>
+      <button type="button" class="btn btn-danger" (click)="onCancelar()">
+        Cancelar
+      </button>
+    </div>
+    <div class="col-auto">
+      <button type="button" class="btn btn-primary" (click)="onSolicitar()">
+        Solicitar
+      </button>
     </div>
   </div>
 </form>

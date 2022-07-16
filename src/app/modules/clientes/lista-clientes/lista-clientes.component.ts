@@ -20,4 +20,8 @@ export class ListaClientesComponent implements OnInit {
     this.router.navigate(['/clientes/registrar-cliente']);
   }
 
+  public onSolicitarPrestamo(idCliente: number) {
+    this.router.navigate(['/prestamos/solicitar-prestamo/' + idCliente]);
+  }
+
 }

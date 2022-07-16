@@ -8,12 +8,6 @@ export class ClienteService {
 
     constructor(private httpClient: HttpClient) { }
 
-    private listaClientes: ClienteModel[] = [
-        { nombre: 'Nombre Uno', cedula: 1234, correo: 'correo 1...' },
-        { nombre: 'Nombre Dos', cedula: 5678, correo: 'correo 2...' },
-        { nombre: 'Nombre Uno', cedula: 9012, correo: 'correo 3...' }
-    ];
-
     crearCliente(objCliente: ClienteModel): Observable<ClienteModel> {
         return this.httpClient.post<ClienteModel>('http://localhost:3000/clientes', objCliente);
         // console.log('El cliente a guardar es: ', objCliente);

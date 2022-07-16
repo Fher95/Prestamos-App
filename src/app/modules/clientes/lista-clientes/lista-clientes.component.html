@@ -14,12 +14,12 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let cliente of listaClientes$ | async; let i = index">
-        <th scope="row">{{ i }}</th>
+        <th scope="row">{{ cliente.id }}</th>
         <td>{{ cliente.nombre }}</td>
         <td>{{ cliente.cedula }}</td>
         <td>{{ cliente.correo }}</td>
         <td>
-          <button class="btn btn-success"><i class="bi bi-cash-coin"></i></button>
+          <button class="btn btn-success" (click)="onSolicitarPrestamo(cliente.id)"><i class="bi bi-cash-coin"></i></button>
         </td>
       </tr>
     </tbody>
