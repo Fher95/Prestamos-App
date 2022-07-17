@@ -1,0 +1,33 @@
+{
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": null,
+      "cedula": null,
+      "correo": null
+    },
+    {
+      "nombre": "fdfsd",
+      "cedula": "3432",
+      "correo": "dsf",
+      "id": 2
+    }
+  ],
+  "prestamos": [
+    {
+      "id": 1,
+      "idCliente": null,
+      "nombreCliente": null,
+      "monto": null,
+      "fechaPago": null
+    },
+    {
+      "monto": 3454,
+      "fechaPago": "2022-07-27",
+      "idCliente": 1,
+      "nombreCliente": null,
+      "cedulaCliente": null,
+      "id": 2
+    }
+  ]
+}
