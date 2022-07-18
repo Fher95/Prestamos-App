@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
+## Ejecucion de la API para gurdado de datos
+Para la correcta ejecución de la aplicación es necesario levantar un servidor json basado en el archivo db.json con el siguiente comando:
+`json-server db.json`.
+A parte de eso solo es necesario ejecutar los comandos `npm install` seguido por `npm start` o `ng serve` para la primera vez que se
+abra la aplicación.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
