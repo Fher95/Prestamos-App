@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { PrestamoModel } from "../../prestamos/models/prestamo.model";
 import { ClienteModel } from '../models/cliente.model';
 
 @Injectable()
@@ -17,6 +18,10 @@ export class ClienteService {
     getListaClientes(): Observable<ClienteModel[]> {
         return this.httpClient.get<ClienteModel[]>('http://localhost:3000/clientes');
         // return this.listaClientes;
+    }
+
+    registrarPrestamo(objPrestamo: PrestamoModel): Observable<PrestamoModel> {
+        return this.httpClient.post<PrestamoModel>('http://localhost:3000/prestamos', objPrestamo);
     }
 
 }

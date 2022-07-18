@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PrestamosService } from '../services/prestamos.service';
-import { tap } from 'rxjs/operators';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteModel } from '../../clientes/models/cliente.model';
 
 @Component({
   selector: 'app-solicitar-prestamo',
@@ -11,7 +10,7 @@ import { tap } from 'rxjs/operators';
 })
 export class SolicitarPrestamoComponent implements OnInit {
 
-  // public infoCliente: ClienteModel | undefined;
+  @Input() infoCliente: ClienteModel | undefined;
 
   public formPrestamo = this.fb.group({
     monto: [null],
@@ -24,9 +23,7 @@ export class SolicitarPrestamoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private prestamoService: PrestamosService
+    private activeModal: NgbActiveModal
   ) { }
 
   ngOnInit(): void {
@@ -42,36 +39,22 @@ export class SolicitarPrestamoComponent implements OnInit {
   }
 
   public cargarInfoCliente() {
-    const idCliente = this.activatedRoute.snapshot.params.idCliente;
-    if (idCliente) {
-      this.prestamoService.getInfoCliente(idCliente)
-        .pipe(tap((cliente) => {
-          this.formPrestamo.setValue({
-            ...this.formPrestamo.value,
-            idCliente: cliente.id,
-            nombreCliente: cliente.nombre,
-            cedulaCliente: cliente.cedula
-          })
-        }))
-        .subscribe();
-    }
+    this.formPrestamo.setValue({
+      ...this.formPrestamo.value,
+      idCliente: this.infoCliente?.id,
+      nombreCliente: this.infoCliente?.nombre,
+      cedulaCliente: this.infoCliente?.cedula
+    })
   }
 
   public onSolicitar() {
     if (this.formPrestamo.get('idCliente')?.value) {
       let objPrestamo = this.formPrestamo.getRawValue();
-      this.prestamoService.registrarPrestamo(objPrestamo)
-        .pipe(tap(
-          {
-            next: (prestamo) => { console.log('Prestamo realizado correctamente: ', JSON.stringify(prestamo)); this.onCancelar() },
-            error: () => console.log('Error al realizar el prestamo')
-          }
-        ))
-        .subscribe();
+      this.activeModal.close({ prestamo: objPrestamo });
     }
   }
 
   public onCancelar() {
-    this.router.navigate(['clientes/lista-clientes']);
+    this.activeModal.close({ prestamo: null });
   }
 }

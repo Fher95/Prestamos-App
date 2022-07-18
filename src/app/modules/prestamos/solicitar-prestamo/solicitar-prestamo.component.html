@@ -1,56 +1,56 @@
-<div class="container d-flex align-items-center justify-content-center vh-100">
-  <form class="col-6 border rounded-3 py-4" [formGroup]="this.formPrestamo">
-    <div class="row my-4 justify-content-center" id="Info cliente">
+<div class="modal-header">
+  <h4 class="modal-title">Solicitud de prestamo</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="onCancelar()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="this.formPrestamo">
+    <div class="row mb-3 justify-content-center" id="Info cliente">
       <div class="col-auto text-center">
         <h3 class="text-primary">{{ this.nombreCliente() }}</h3>
         <strong>{{ this.cedulaCliente() }}</strong>
       </div>
     </div>
-    <div class="row g-3 my-4 justify-content-center">
+    <div class="row justify-content-center">
+      <label for="monto" class="col-form-label text-center">Monto</label>
       <div class="col-auto">
-        <label for="monto" class="col-form-label">Monto</label>
-      </div>
-      <div class="col-auto">
-        <input
-          type="number"
-          id="monto"
-          class="form-control"
-          aria-describedby="passwordHelpInline"
-          formControlName="monto"
-        />
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input
+            type="number"
+            id="monto"
+            class="form-control"
+            aria-describedby="passwordHelpInline"
+            formControlName="monto"
+          />
+        </div>
         <span id="passwordHelpInline" class="form-text">
           Ingrese un valor entre $10.000 y $100.000.
         </span>
       </div>
-      <!-- <div class="col-auto">
-          </div> -->
     </div>
     <div class="row my-4 justify-content-center">
-      <div class="col-auto">
-        <label for="exampleInputPassword1" class="form-label"
-          >Fecha de pago</label
-        >
-      </div>
+      <label for="fecha" class="form-label text-center">Fecha de pago</label>
       <div class="col-auto">
         <input
           type="date"
           class="form-control"
-          id="exampleInputPassword1"
+          id="fecha"
           formControlName="fechaPago"
         />
       </div>
     </div>
-    <div class="row my-4 justify-content-center">
-      <div class="col-auto">
-        <button type="button" class="btn btn-danger" (click)="onCancelar()">
-          Cancelar
-        </button>
-      </div>
-      <div class="col-auto">
-        <button type="button" class="btn btn-primary" (click)="onSolicitar()">
-          Solicitar
-        </button>
-      </div>
-    </div>
   </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-success" (click)="onSolicitar()">
+    Solicitar
+  </button>
+  <button type="button" class="btn btn-outline-danger" (click)="onCancelar()">
+    Cancelar
+  </button>
 </div>

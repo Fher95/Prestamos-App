@@ -7,6 +7,7 @@ import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClienteService } from './services/cliente.service';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
     CommonModule,
     ClientesRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModalModule
   ],
   exports: [CrearUsuarioComponent, ListaClientesComponent]
 })

@@ -45,6 +45,42 @@
       "cedulaCliente": "1",
       "pagado": 420,
       "id": 3
+    },
+    {
+      "monto": 20000,
+      "fechaPago": "2022-07-28",
+      "idCliente": 2,
+      "nombreCliente": "fdfsd",
+      "cedulaCliente": "3432",
+      "pagado": 0,
+      "id": 4
+    },
+    {
+      "monto": null,
+      "fechaPago": null,
+      "idCliente": 2,
+      "nombreCliente": "fdfsd",
+      "cedulaCliente": "3432",
+      "pagado": 0,
+      "id": 5
+    },
+    {
+      "monto": 30000,
+      "fechaPago": "2022-07-20",
+      "idCliente": 2,
+      "nombreCliente": "fdfsd",
+      "cedulaCliente": "3432",
+      "pagado": 0,
+      "id": 6
+    },
+    {
+      "monto": 2343,
+      "fechaPago": null,
+      "idCliente": 3,
+      "nombreCliente": "a",
+      "cedulaCliente": "1",
+      "pagado": 0,
+      "id": 7
     }
   ]
 }
