@@ -15,19 +15,19 @@
         <tr *ngFor="let prestamo of listaPrestamos$ | async; let i = index">
           <th scope="row">{{ prestamo.id }}</th>
           <td>{{ prestamo.nombreCliente }}</td>
-          <td>{{ prestamo.monto }}</td>
+          <td>{{ prestamo.monto ? '$ '+prestamo.monto : '' }}</td>
           <td>{{ prestamo.fechaPago }}</td>
           <td>
             <div class="col">
               <div class="text-success fw-bold">
                 Pagado:
-                <span class="text-decoration-underline">{{
+                <span class="text-decoration-underline">$ {{
                   prestamo.pagado
                 }}</span>
               </div>
               <div class="text-danger fw-bold">
                 Debe:
-                <span class="text-decoration-underline">{{
+                <span class="text-decoration-underline">$ {{
                   prestamo.monto - prestamo.pagado
                 }}</span>
               </div>
