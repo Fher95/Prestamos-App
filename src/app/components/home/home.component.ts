@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SaldoBancoService } from 'src/app/modules/shared/services/saldo-banco.service';
 
 export enum TabRoutes {
   LST_CLIENTES = '/clientes/lista-clientes',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   public selectedTab = 0;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private saldoService: SaldoBancoService) { }
 
   ngOnInit(): void {
 

@@ -9,6 +9,7 @@ import { PrestamosService } from './services/prestamos.service';
 import { ListaPrestamosComponent } from './lista-prestamos/lista-prestamos.component';
 import { PagarPrestamoComponent } from './pagar-prestamo/pagar-prestamo.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({

@@ -21,7 +21,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     ClientesRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModalModule
+    NgbModalModule,
   ],
   exports: [CrearUsuarioComponent, ListaClientesComponent]
 })

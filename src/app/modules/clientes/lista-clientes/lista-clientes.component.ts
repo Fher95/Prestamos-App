@@ -6,6 +6,7 @@ import { SolicitarPrestamoComponent } from '../../prestamos/solicitar-prestamo/s
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tap } from 'rxjs/operators';
 import { PrestamoModel } from '../../prestamos/models/prestamo.model';
+import { SaldoBancoService } from '../../shared/services/saldo-banco.service';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -19,7 +20,8 @@ export class ListaClientesComponent implements OnInit {
   constructor(
     private clienteService: ClienteService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private saldoService: SaldoBancoService
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +32,6 @@ export class ListaClientesComponent implements OnInit {
   }
 
   public onSolicitarPrestamo(cliente: ClienteModel) {
-    // this.router.navigate(['/prestamos/solicitar-prestamo/' + idCliente]);
     const modalRef = this.modalService.open(SolicitarPrestamoComponent);
     modalRef.componentInstance.infoCliente = cliente;
     modalRef.closed
@@ -43,8 +44,7 @@ export class ListaClientesComponent implements OnInit {
   public solicitarPrestamo(prestamo: PrestamoModel) {
     debugger
     if (prestamo.idCliente) {
-      // let objPrestamo = this.formPrestamo.getRawValue();
-      // this.activeModal.close({ prestamo: objPrestamo });
+      this.saldoService.setSaldoActual(this.saldoService.getSaldoActual() - prestamo.monto);
       this.clienteService.registrarPrestamo(prestamo)
         .pipe(tap(
           {
@@ -54,10 +54,6 @@ export class ListaClientesComponent implements OnInit {
         ))
         .subscribe();
     }
-  }
-
-  private recargarListaCliente() {
-    this.listaClientes$ = this.clienteService.getListaClientes();
   }
 
 }
