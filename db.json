@@ -87,6 +87,15 @@
       "cedulaCliente": "1",
       "pagado": 0,
       "id": 7
+    },
+    {
+      "monto": 25000,
+      "fechaPago": "2022-07-20",
+      "idCliente": 4,
+      "nombreCliente": "David Gomez",
+      "cedulaCliente": "134",
+      "pagado": 0,
+      "id": 8
     }
   ]
 }

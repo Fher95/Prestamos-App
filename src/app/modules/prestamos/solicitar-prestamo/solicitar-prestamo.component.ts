@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteModel } from '../../clientes/models/cliente.model';
 
@@ -13,7 +13,7 @@ export class SolicitarPrestamoComponent implements OnInit {
   @Input() infoCliente: ClienteModel | undefined;
 
   public formPrestamo = this.fb.group({
-    monto: [null],
+    monto: [null, [Validators.min(10000), Validators.max(100000), Validators.required]],
     fechaPago: [null],
     idCliente: [null],
     nombreCliente: [null],

@@ -28,7 +28,13 @@
             formControlName="monto"
           />
         </div>
-        <span id="passwordHelpInline" class="form-text">
+        <span
+          id="passwordHelpInline"
+          class="form-text"
+          [ngClass]="{
+            'text-danger': !this.formPrestamo.valid && this.formPrestamo.touched
+          }"
+        >
           Ingrese un valor entre $10.000 y $100.000.
         </span>
       </div>
@@ -47,10 +53,15 @@
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-success" (click)="onSolicitar()">
+  <button
+    type="button"
+    class="btn btn-success"
+    (click)="onSolicitar()"
+    [disabled]="!this.formPrestamo.valid"
+  >
     Solicitar
   </button>
-  <button type="button" class="btn btn-outline-danger" (click)="onCancelar()">
+  <button type="button" class="btn btn-danger" (click)="onCancelar()">
     Cancelar
   </button>
 </div>
