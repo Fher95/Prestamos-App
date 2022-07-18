@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ClienteService } from '../services/cliente.service';
-import { ClienteModel } from '../models/cliente.model';
-import { SolicitarPrestamoComponent } from '../../prestamos/solicitar-prestamo/solicitar-prestamo.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ClienteModel } from '../models/cliente.model';
+import { ClienteService } from '../services/cliente.service';
+import { AlertTypes } from '../../shared/models/alerts.model';
 import { PrestamoModel } from '../../prestamos/models/prestamo.model';
-import { SaldoBancoService } from '../../shared/services/saldo-banco.service';
+import { SaldoBancoService } from 'src/app/modules/shared/services/saldo-banco.service';
+import { SolicitarPrestamoComponent } from '../../prestamos/solicitar-prestamo/solicitar-prestamo.component';
 
 @Component({
   selector: 'app-lista-clientes',
@@ -42,14 +43,17 @@ export class ListaClientesComponent implements OnInit {
   }
 
   public solicitarPrestamo(prestamo: PrestamoModel) {
-    debugger
     if (prestamo.idCliente) {
+      if (!this.saldoService.aprobarPrestamo()) {
+        this.saldoService.notificarOperacion({mensaje:"Lo sentimos. El prestamo ha sido rechazado.", tipo: AlertTypes.DANGER});
+        return;
+      }
       this.saldoService.setSaldoActual(this.saldoService.getSaldoActual() - prestamo.monto);
       this.clienteService.registrarPrestamo(prestamo)
         .pipe(tap(
           {
-            next: (prestamo) => { console.log('Prestamo realizado correctamente: ', JSON.stringify(prestamo)); },
-            error: () => console.log('Error al realizar el prestamo')
+            next: () => { this.saldoService.notificarOperacion({mensaje: "El prestamo ha sido aprobado.", tipo: AlertTypes.SUCCESS}); },
+            error: () => this.saldoService.notificarOperacion({mensaje: "Ha ocurrido un error.", tipo: AlertTypes.DANGER})
           }
         ))
         .subscribe();

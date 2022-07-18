@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap/alert/alert';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { AlertModel } from 'src/app/modules/shared/models/alerts.model';
 import { SaldoBancoService } from 'src/app/modules/shared/services/saldo-banco.service';
 
 export enum TabRoutes {
@@ -14,14 +18,26 @@ export enum TabRoutes {
 })
 export class HomeComponent implements OnInit {
 
+  private _alert = new Subject<string>();
+
   public selectedTab = 0;
+  public alerta: AlertModel | undefined;
+
+  @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert | undefined;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private saldoService: SaldoBancoService) { }
 
   ngOnInit(): void {
+    this.escucharNotificacinesAlertas();
+  }
 
-    this.activatedRoute.url.subscribe((res) => console.log('PRUEBAA ' + res));
-    // this.router.
+  private escucharNotificacinesAlertas() {
+    this.saldoService.alertaOperacion$.subscribe(alert => this.alerta = alert);
+    this.saldoService.alertaOperacion$.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
   }
 
   public onSelectTab(tabIndex: number): void {
@@ -29,11 +45,9 @@ export class HomeComponent implements OnInit {
     switch (tabIndex) {
       case 0:
         this.router.navigate(['clientes/lista-clientes']);
-        console.log('Select ' + this.router.url);
         break;
       case 1:
         this.router.navigate(['prestamos/lista-prestamos']);
-        console.log('Select ' + this.router.url);
         break;
       default:
         break;
@@ -54,5 +68,7 @@ export class HomeComponent implements OnInit {
         return -1;
     }
   }
+
+  public changeSuccessMessage() { this._alert.next(`${new Date()} - Message successfully changed.`); }
 
 }

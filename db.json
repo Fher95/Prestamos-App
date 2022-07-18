@@ -1,101 +1,44 @@
 {
   "clientes": [
     {
+      "id": 0,
+      "nombre": "Mr. Leo Kirlin",
+      "cedula": 96945161,
+      "correo": "Altenwerth_Milton@Robel.io"
+    },
+    {
       "id": 1,
-      "nombre": null,
-      "cedula": null,
-      "correo": null
+      "nombre": "Dr. Marguerite Wuckert",
+      "cedula": 11013683,
+      "correo": "Kassulke.Jimmie@Skye.io"
     },
     {
-      "nombre": "fdfsd",
-      "cedula": "3432",
-      "correo": "dsf",
-      "id": 2
+      "id": 2,
+      "nombre": "Mrs. Bobby Murray",
+      "cedula": 50393158,
+      "correo": "Jerel_Dickinson@yahoo.com"
     },
     {
-      "nombre": "a",
-      "cedula": "1",
-      "correo": "a",
-      "id": 3
+      "id": 3,
+      "nombre": "Mr. Chris Kovacek",
+      "cedula": 30663895,
+      "correo": "Alexanne_Langworth@hotmail.com"
     },
     {
-      "nombre": "David Gomez",
-      "cedula": "134",
-      "correo": "fdg",
-      "id": 4
+      "id": 4,
+      "nombre": "Mr. Herta Windler",
+      "cedula": 53614166,
+      "correo": "Iliana.Larson@hotmail.com"
     }
   ],
   "prestamos": [
     {
-      "id": 1,
-      "idCliente": null,
-      "nombreCliente": null,
-      "monto": null,
-      "pagado": 0,
-      "fechaPago": null
-    },
-    {
-      "monto": 10000,
-      "fechaPago": "2022-07-20",
-      "idCliente": 2,
-      "nombreCliente": "fdfsd",
-      "cedulaCliente": "3432",
-      "id": 2,
-      "pagado": 69
-    },
-    {
-      "monto": 1000,
-      "fechaPago": "2022-07-08",
-      "idCliente": 3,
-      "nombreCliente": "a",
-      "cedulaCliente": "1",
-      "pagado": 420,
-      "id": 3
-    },
-    {
-      "monto": 20000,
-      "fechaPago": "2022-07-28",
-      "idCliente": 2,
-      "nombreCliente": "fdfsd",
-      "cedulaCliente": "3432",
-      "pagado": 0,
-      "id": 4
-    },
-    {
-      "monto": null,
-      "fechaPago": null,
-      "idCliente": 2,
-      "nombreCliente": "fdfsd",
-      "cedulaCliente": "3432",
-      "pagado": 0,
-      "id": 5
-    },
-    {
-      "monto": 30000,
-      "fechaPago": "2022-07-20",
-      "idCliente": 2,
-      "nombreCliente": "fdfsd",
-      "cedulaCliente": "3432",
-      "pagado": 0,
-      "id": 6
-    },
-    {
-      "monto": 2343,
-      "fechaPago": null,
-      "idCliente": 3,
-      "nombreCliente": "a",
-      "cedulaCliente": "1",
-      "pagado": 0,
-      "id": 7
-    },
-    {
-      "monto": 25000,
-      "fechaPago": "2022-07-20",
-      "idCliente": 4,
-      "nombreCliente": "David Gomez",
-      "cedulaCliente": "134",
-      "pagado": 0,
-      "id": 8
+      "id": 0,
+      "idCliente": 0,
+      "nombreCliente": "Mr. Leo Kirlin",
+      "monto": 1500,
+      "fechaPago": "1993-07-15",
+      "pagado": 0
     }
   ]
 }

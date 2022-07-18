@@ -15,16 +15,26 @@
     <div class="col-6 my-2">
       <div class="input-group" [formGroup]="formPago">
         <span class="input-group-text">$</span>
-        <input type="number" class="form-control" id="valorPago" autocomplete="off" formControlName="valorPago"/>
+        <input
+          type="number"
+          class="form-control"
+          id="valorPago"
+          autocomplete="off"
+          formControlName="valorPago"
+        />
       </div>
+      <span *ngIf="getPendientePorPagar()" class="text-muted"
+        >Pendiente de pago: $
+        {{ getPendientePorPagar() }}</span
+      >
     </div>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-success" (click)="onPagar()">
+  <button type="button" class="btn btn-success" (click)="onPagar()">
     Pagar
   </button>
-  <button type="button" class="btn btn-outline-danger" (click)="onClose()">
+  <button type="button" class="btn btn-danger" (click)="onClose()">
     Cancelar
   </button>
 </div>

@@ -1,9 +1,11 @@
+import { tap } from "rxjs/operators";
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ClienteModel } from '../models/cliente.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClienteService } from '../services/cliente.service';
-import { ClienteModel } from '../models/cliente.model';
-import { Router } from '@angular/router';
-import { tap } from "rxjs/operators";
+import { AlertTypes } from '../../shared/models/alerts.model';
+import { SaldoBancoService } from 'src/app/modules/shared/services/saldo-banco.service';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -14,7 +16,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   public formCliente: FormGroup = this.crearFormulario();
 
-  constructor(private fb: FormBuilder, private clienteService: ClienteService, private router: Router) { }
+  constructor(private fb: FormBuilder, private clienteService: ClienteService, private router: Router, private saldoService: SaldoBancoService) { }
 
   ngOnInit(): void {
     this.crearFormulario();
@@ -33,11 +35,20 @@ export class CrearUsuarioComponent implements OnInit {
     this.clienteService.crearCliente(infoCliente)
     .pipe(
       tap({
-        next: () => {console.log('Agregado exitosamente.'); this.onCancelar();},
-        error: () => console.log('Ha ocurrido un error al registrar el cliente.')
+        next: () => this.onRegistroExitoso(),
+        error: () => this.onErrorRegistro()
       })
       )
     .subscribe();
+  }
+
+  onRegistroExitoso() {
+    this.saldoService.notificarOperacion({mensaje:'Cliente registrado exitosamente.', tipo: AlertTypes.SUCCESS});
+    this.onCancelar();
+  }
+
+  onErrorRegistro() {
+    this.saldoService.notificarOperacion({mensaje:'Ha ocurrido un error en el registro.', tipo: AlertTypes.DANGER});
   }
 
   public onCancelar() {

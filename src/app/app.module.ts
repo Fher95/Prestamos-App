@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SaldoBancoService } from './modules/shared/services/saldo-banco.service';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './modules/shared/shared.module';
+import { HomeComponent } from './components/home/home.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { SaldoBancoComponent } from './components/saldo-banco/saldo-banco.component';
 
 @NgModule({
@@ -20,7 +18,7 @@ import { SaldoBancoComponent } from './components/saldo-banco/saldo-banco.compon
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    NgbModule,
+    NgbAlertModule,
     SharedModule.forRoot()
   ],
   providers: [],
