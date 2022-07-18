@@ -18,7 +18,8 @@ export class SolicitarPrestamoComponent implements OnInit {
     fechaPago: [null],
     idCliente: [null],
     nombreCliente: [null],
-    cedulaCliente: [null]
+    cedulaCliente: [null],
+    pagado: [0]
   });
 
   constructor(
@@ -62,7 +63,7 @@ export class SolicitarPrestamoComponent implements OnInit {
       this.prestamoService.registrarPrestamo(objPrestamo)
         .pipe(tap(
           {
-            next: (prestamo) => { console.log('Prestamo realizado correctamente: ', JSON.stringify(prestamo)) },
+            next: (prestamo) => { console.log('Prestamo realizado correctamente: ', JSON.stringify(prestamo)); this.onCancelar() },
             error: () => console.log('Error al realizar el prestamo')
           }
         ))

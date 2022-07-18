@@ -7,6 +7,8 @@ import { PrestamoModel } from '../models/prestamo.model';
 @Injectable()
 export class PrestamosService {
 
+    private prestamosUrl = 'http://localhost:3000/prestamos';
+
     constructor(private httpClient: HttpClient) { }
 
     getInfoCliente(idCliente: number): Observable<ClienteModel> {
@@ -14,10 +16,14 @@ export class PrestamosService {
     }
 
     registrarPrestamo(objPrestamo: PrestamoModel): Observable<PrestamoModel> {
-        return this.httpClient.post<PrestamoModel>('http://localhost:3000/prestamos', objPrestamo);
+        return this.httpClient.post<PrestamoModel>(this.prestamosUrl, objPrestamo);
     }
 
     getListaPrestamos(): Observable<PrestamoModel[]> {
-        return this.httpClient.get<PrestamoModel[]>('http://localhost:3000/prestamos');
+        return this.httpClient.get<PrestamoModel[]>(this.prestamosUrl);
+    }
+
+    actualizarPrestamo(prestamo: PrestamoModel): Observable<PrestamoModel> {
+        return this.httpClient.put<PrestamoModel>(this.prestamosUrl+'/'+prestamo.id, prestamo);
     }
 }

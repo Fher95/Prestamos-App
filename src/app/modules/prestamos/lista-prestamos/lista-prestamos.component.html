@@ -9,6 +9,7 @@
         <th scope="col">Cliente</th>
         <th scope="col">Monto aprobado</th>
         <th scope="col">Fecha pago</th>
+        <th scope="col">Estado</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -19,7 +20,23 @@
         <td>{{ prestamo.monto }}</td>
         <td>{{ prestamo.fechaPago }}</td>
         <td>
-          <button class="btn btn-success">
+          <div class="col">
+            <div class="text-success fw-bold">
+              Pagado:
+              <span class="text-decoration-underline">{{
+                prestamo.pagado
+              }}</span>
+            </div>
+            <div class="text-danger fw-bold">
+              Debe:
+              <span class="text-decoration-underline">{{
+                prestamo.monto - prestamo.pagado
+              }}</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="onAbrirModalPago(prestamo)">
             <i class="bi bi-cash-coin"></i> <span> Pagar</span>
           </button>
         </td>

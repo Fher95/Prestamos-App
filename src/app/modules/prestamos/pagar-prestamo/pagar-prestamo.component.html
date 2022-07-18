@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4 class="modal-title">Pago de prestamo</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="onClose()"
+  ></button>
+</div>
+<div class="modal-body">
+  <h3 class="text-primary text-center">{{ infoPrestamo?.nombreCliente }}</h3>
+
+  <div class="row my-3 justify-content-center text-center">
+    <label for="valorPago" class="">Ingrese el valor a pagar</label>
+    <div class="col-6 my-2">
+      <div class="input-group" [formGroup]="formPago">
+        <span class="input-group-text">$</span>
+        <input type="number" class="form-control" id="valorPago" autocomplete="off" formControlName="valorPago"/>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-success" (click)="onPagar()">
+    Pagar
+  </button>
+  <button type="button" class="btn btn-outline-danger" (click)="onClose()">
+    Cancelar
+  </button>
+</div>

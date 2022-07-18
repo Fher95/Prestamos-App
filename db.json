@@ -11,6 +11,12 @@
       "cedula": "3432",
       "correo": "dsf",
       "id": 2
+    },
+    {
+      "nombre": "a",
+      "cedula": "1",
+      "correo": "a",
+      "id": 3
     }
   ],
   "prestamos": [
@@ -19,15 +25,26 @@
       "idCliente": null,
       "nombreCliente": null,
       "monto": null,
+      "pagado": 0,
       "fechaPago": null
     },
     {
-      "monto": 3454,
-      "fechaPago": "2022-07-27",
-      "idCliente": 1,
-      "nombreCliente": null,
-      "cedulaCliente": null,
-      "id": 2
+      "monto": 10000,
+      "fechaPago": "2022-07-20",
+      "idCliente": 2,
+      "nombreCliente": "fdfsd",
+      "cedulaCliente": "3432",
+      "id": 2,
+      "pagado": 69
+    },
+    {
+      "monto": 1000,
+      "fechaPago": "2022-07-08",
+      "idCliente": 3,
+      "nombreCliente": "a",
+      "cedulaCliente": "1",
+      "pagado": 420,
+      "id": 3
     }
   ]
 }

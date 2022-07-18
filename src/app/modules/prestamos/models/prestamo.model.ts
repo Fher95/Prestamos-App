@@ -3,5 +3,6 @@ export interface PrestamoModel {
     idCliente: number,
     nombreCliente: string,
     monto: number,
-    fechaPago: string
+    fechaPago: string,
+    pagado: number
 }
