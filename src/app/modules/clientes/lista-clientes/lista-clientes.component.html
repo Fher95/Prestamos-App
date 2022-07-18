@@ -1,27 +1,38 @@
-<div class="text-center my-3">
-  <button class="btn btn-primary" (click)="onRegistrarCliente()">Registrar cliente</button>
+<div class="d-flex justify-content-center text-start">
+  <div class="col-8 py-2">
+  <button class="btn btn-primary" (click)="onRegistrarCliente()">
+    Registrar cliente
+  </button>
 </div>
-<div class="content">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Cliente</th>
-        <th scope="col">Cedula</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Prestamo</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let cliente of listaClientes$ | async; let i = index">
-        <th scope="row">{{ cliente.id }}</th>
-        <td>{{ cliente.nombre }}</td>
-        <td>{{ cliente.cedula }}</td>
-        <td>{{ cliente.correo }}</td>
-        <td>
-          <button class="btn btn-success" (click)="onSolicitarPrestamo(cliente)"><i class="bi bi-cash-coin"></i><span> Solicitar</span></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="col-8 border rounded-3 p-4">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Prestamo</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let cliente of listaClientes$ | async; let i = index">
+          <th scope="row">{{ cliente.id }}</th>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.cedula }}</td>
+          <td>{{ cliente.correo }}</td>
+          <td>
+            <button
+              class="btn btn-success"
+              (click)="onSolicitarPrestamo(cliente)"
+            >
+              <i class="bi bi-cash-coin"></i><span> Solicitar</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
