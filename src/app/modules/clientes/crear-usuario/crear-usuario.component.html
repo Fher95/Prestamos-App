@@ -1,65 +1,52 @@
-<form [formGroup]="this.formCliente" autocomplete="off">
-  <div class="my-3">
-    <label for="nombre" class="form-label">Nombre</label>
-    <input
-      type="text"
-      class="form-control"
-      id="nombre"
-      formControlName="nombre"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="cedula" class="form-label">Cédula</label>
-    <input
-      type="text"
-      class="form-control"
-      id="cedula"
-      formControlName="cedula"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="correo" class="form-label">Correo</label>
-    <input
-      type="text"
-      class="form-control"
-      id="correo"
-      formControlName="correo"
-    />
-  </div>
-  <div id="botones">
-    <button
-      type="button"
-      class="btn btn-primary me-3"
-      (click)="onRegistrar()"
-    >
-      Registrar
-    </button>
-    <button
-      type="button"
-      class="btn btn-danger ms-3"
-      (click)="onCancelar()"
-    >
-      Cancelar
-    </button>
-  </div>
-</form>
-<!-- <div class="container">
-  <div class="col">
-    <div class="row">
-      <span>Nombre: </span>
-      <input type="text" />
+<div class="d-flex align-items-center justify-content-center">
+  <form
+    [formGroup]="this.formCliente"
+    autocomplete="off"
+    class="col-6 border rounded-3 p-4"
+  >
+    <h3 class="text-center text-primary">Registro de cliente</h3>
+    <div class="my-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        formControlName="nombre"
+      />
     </div>
-    <div class="row">
-      <span>Correo: </span>
-      <input type="text" />
+    <div class="mb-3">
+      <label for="cedula" class="form-label">Cédula</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cedula"
+        formControlName="cedula"
+      />
     </div>
-    <div class="row">
-      <span>Telefono: </span>
-      <input type="text" />
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="correo"
+        formControlName="correo"
+      />
     </div>
-    <div class="row my-3 gx-3">
-        <button class="btn btn-primary col">Guardar</button>
-        <button class="btn btn-danger col">Cancelar</button>
+    <div id="botones" class="row justify-content-end gap-3 p-3">
+      <button
+        type="button"
+        class="btn btn-primary col-auto"
+        (click)="onRegistrar()"
+      >
+        Registrar
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger col-auto"
+        (click)="onCancelar()"
+      >
+        Cancelar
+      </button>
     </div>
-  </div>
-</div> -->
+  </form>
+</div>

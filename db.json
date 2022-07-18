@@ -17,6 +17,12 @@
       "cedula": "1",
       "correo": "a",
       "id": 3
+    },
+    {
+      "nombre": "David Gomez",
+      "cedula": "134",
+      "correo": "fdg",
+      "id": 4
     }
   ],
   "prestamos": [
